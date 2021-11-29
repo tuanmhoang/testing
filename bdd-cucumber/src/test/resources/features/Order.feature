@@ -1,5 +1,7 @@
+@Order
 Feature: Order items from an ecommerce shop
 
+  @System
   Scenario Outline: As a system, I can calculate the item price with its quantity
     Given I added to cart the items with the price is <Price>
     And the quantity is <Quantities>
@@ -11,6 +13,7 @@ Feature: Order items from an ecommerce shop
       | 7.77  | 5          | 38.85     |
       | 2.5   | 1          | 2.5       |
 
+  @Buyer
   Scenario: As a buyer, I can order items such as
     Given I add to cart the items like this
       | Id | Price | Quantities |
@@ -23,6 +26,7 @@ Feature: Order items from an ecommerce shop
     When I go to the last step
     Then the final price should be 86.74
 
+  @Seller
   Scenario: As a seller, I can update the order status
     Given I update the status of the order like this
       | Id | Status  |
