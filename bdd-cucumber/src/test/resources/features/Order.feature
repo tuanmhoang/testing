@@ -28,8 +28,8 @@ Feature: Order items from an ecommerce shop
       | Id | Status  |
       | 1  | Pending |
       | 2  | Pending |
-    And I update the status of the id is 1 to "Shipped"
-    And I update the status of the id is 2 to "Canceled"
+    And I update the status of the first id is 1 to "Shipped"
+    And I update the status of the second id is 2 to "Canceled"
     When I check the order status again
     Then the status should be like this
       | Id | Status   |
