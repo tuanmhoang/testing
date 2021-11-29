@@ -22,3 +22,16 @@ Feature: Order items from an ecommerce shop
     And with the discount code I can reduce the price is 2.6
     When I go to the last step
     Then the final price should be 86.74
+
+  Scenario: As a seller, I can update the order status
+    Given I update the status of the order like this
+      | Id | Status  |
+      | 1  | Pending |
+      | 2  | Pending |
+    And I update the status of the id is 1 to "Shipped"
+    And I update the status of the id is 2 to "Canceled"
+    When I check the order status again
+    Then the status should be like this
+      | Id | Status   |
+      | 1  | Shipped  |
+      | 2  | Canceled |

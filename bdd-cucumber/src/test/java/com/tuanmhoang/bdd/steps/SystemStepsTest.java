@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SystemStepsTest {
 
-    private double calculatedItemPrice = 0;
     private double priceOfTheItem;
     private int quantityOfTheItem;
     private PriceCalculator priceCalculator = new PriceCalculator();
