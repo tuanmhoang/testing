@@ -1,5 +1,6 @@
 package com.tuanmhoang.bdd.services;
 
+import com.tuanmhoang.bdd.helper.TriFunction;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.function.BiFunction;
@@ -21,5 +22,10 @@ public class PriceCalculator {
         BigDecimal bd = BigDecimal.valueOf(value);
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
+    }
+
+    public double calculateFinalPrice(double finalPrice, double shippingFee, double discountPrice) {
+        TriFunction<Double, Double, Double, Double> price = (p, s, d) -> p + s - d;
+        return round(price.apply(finalPrice, shippingFee, discountPrice),DEFAULT_NUMBER_TO_BE_ROUNDED_UP);
     }
 }
