@@ -1,5 +1,6 @@
 package com.tuanmhoang.bdd.steps;
 
+import com.tuanmhoang.bdd.services.PriceCalculator;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
@@ -24,6 +25,5 @@ public class SystemStepsTest {
     public void the_price_that_i_have_to_pay_is(Double itemPrice) {
         double actualCalculatedPrice = priceCalculator.calculatePrice(priceOfTheItem,quantityOfTheItem);
         assertEquals(itemPrice, actualCalculatedPrice);
-
     }
 }
